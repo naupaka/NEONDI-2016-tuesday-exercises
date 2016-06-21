@@ -22,7 +22,6 @@ create_height_class_matrix <- function(breaks){
 	# 					30, 50, 3, 
 	# 					50, 100, 4)
 	
-	
 	# reshape the object into a matrix with columns and rows
 	reclass.height.mat <- matrix(height.class.m, 
 								 ncol = 3, 
@@ -89,7 +88,6 @@ plot_reclassified_raster <- function(rast.in, site.name, breaks){
 						 paste0(height.mat[i, 1], "-", 
 						 	   height.mat[i, 2], " m"))
 	}
-	
 	
 	# create the legend
 	legend(leg.x, leg.y,  # set x,y legend location
