@@ -32,6 +32,14 @@ source("scripts/functions.R")
 chm_file <- "../NEONdata/D17-California/TEAK/2013/lidar/TEAK_lidarCHM.tif"
 chosen.breaks <- c(6, 30, 50, 100)
 site_name <- "Teakettle"
+site_file_code <- "TEAK"
+output_dir_path <- "../outputs/tuesday-pm/"
+```
+
+```{r create-output-dir}
+# create the output directory we want to use if it doesn't yet exist
+ifelse(!dir.exists(file.path(output_dir_path)), 
+	   dir.create(file.path(output_dir_path), showWarnings = TRUE))
 ```
 
 ```{r quick-sanity-plots}
@@ -56,7 +64,7 @@ plot_chm_density(chm, site_name, chosen.breaks)
 
 # Write density plot out to pdf
 make_pdf(plot_chm_density(chm, site_name, chosen.breaks),
-		 file = "output/chm_density_plot.pdf", width = 6, height = 5)
+		 file = paste0(output_dir_path, site_file_code, "chm_density_plot.pdf"), width = 6, height = 5)
 
 ```
 
@@ -71,11 +79,11 @@ plot_reclassified_raster(reclassified.chm, site_name, breaks = chosen.breaks)
 
 # Write out to pdf
 make_pdf(plot_reclassified_raster(reclassified.chm, site_name, breaks = chosen.breaks),
-	file = "output/reclassified_chm.pdf", height = 5, width = 6)
+	file = paste0(output_dir_path, site_file_code, "reclassified_chm.pdf"), height = 5, width = 6)
 
 # export geotiff
 writeRaster(reclassified.chm,
-            filename = "output/reclassified_lidar_CHM.tif",
+            filename = paste0(output_dir_path, site_file_code, "reclassified_lidar_CHM.tif"),
             format = "GTiff",
             options = "COMPRESS=LZW",
             overwrite = TRUE,
