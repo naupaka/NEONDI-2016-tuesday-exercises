@@ -15,10 +15,10 @@ Out goals are to:
 
 1. Import a raster — A lidar canopy height model (lidar/Teak_lidarCHM.tif)
 1. For the CHM, set values == 0 to NA (not trees)
-1. Classify the raster according to some distribution – low medium and tall trees. This could be done using a histogram potentially or we could just decide that <2m is generally grasses / understory, <6m small trees,and the rest are tall trees. Visualize histogram/density and plot vertical cutoff lines.
-1. Plot the reclassified raster and add a legend for each “class”. 
-1. Export the plot figure to a pdf in the outputs folder – publishable
-1. Export the classified raster as a geotiff with NaFlagg = -9999 to an outputs folder.
+1. Classify the raster according to some distribution – low medium and tall trees. This could be done using a histogram potentially or we could just decide that <2m is generally grasses / understory, <6m small trees,and the rest are tall trees. Visualize histogram/density and plot vertical cutoff lines
+1. Plot the reclassified raster and add a legend for each “class”
+1. Export the plot figure to a pdf in the outputs folder
+1. Export the classified raster as a geotiff with NaFlagg = -9999 to an outputs folder
 
 
 ```{r code}
